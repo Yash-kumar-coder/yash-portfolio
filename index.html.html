@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yash Gupta - UI/UX Designer & Web Developer</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#0eff7e',secondary:'#00a3ff'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Poppins', sans-serif;
+background-color: #050a18;
+color: #ffffff;
+}
+.glow {
+box-shadow: 0 0 10px rgba(14, 255, 126, 0.5),
+            0 0 20px rgba(14, 255, 126, 0.3);
+}
+
+.hovar:hover{
+  background: #0eff7e;
+  color: #000;
+  box-shadow: 0 0 15px rgba(14, 255, 126, 0.7), 0 0 30px rgba(14, 255, 126, 0.4);
+  transform: scale(1.1) rotate(1deg);
+  cursor: pointer;
+}
+
+h1, h2, h3, h4, h5, h6 {
+font-family: 'Orbitron', sans-serif;
+}
+.hero-bg {
+background: linear-gradient(135deg, rgba(5, 10, 24, 0.9), rgba(17, 24, 39, 0.9)), url('https://readdy.ai/api/search-image?query=futuristic%20digital%20landscape%20with%20abstract%20geometric%20shapes%2C%20neon%20lights%2C%20dark%20blue%20and%20purple%20color%20scheme%2C%20cyberpunk%20style%2C%20digital%20art%2C%20high%20quality%2C%208k%20resolution%2C%20detailed%2C%20professional&width=1920&height=1080&seq=hero1&orientation=landscape');
+background-size: cover;
+background-position: center;
+}
+.glass-card {
+background: rgba(11, 18, 37, 0.25);
+backdrop-filter: blur(10px);
+border: 1px solid rgba(255, 255, 255, 0.1);
+box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+.neon-glow {
+box-shadow: 0 0 15px rgba(14, 255, 126, 0.5), 0 0 30px rgba(14, 255, 126, 0.3);
+}
+.neon-text {
+text-shadow: 0 0 5px rgba(14, 255, 126, 0.5), 0 0 10px rgba(14, 255, 126, 0.3);
+}
+.blue-glow {
+box-shadow: 0 0 15px rgba(0, 163, 255, 0.5), 0 0 30px rgba(0, 163, 255, 0.3);
+}
+.blue-text {
+text-shadow: 0 0 5px rgba(0, 163, 255, 0.5), 0 0 10px rgba(0, 163, 255, 0.3);
+}
+.gradient-text {
+background: linear-gradient(90deg, #0eff7e, #00a3ff);
+-webkit-background-clip: text;
+background-clip: text;
+color: transparent;
+}
+.btn-glow:hover {
+box-shadow: 0 0 15px rgba(14, 255, 126, 0.7), 0 0 30px rgba(14, 255, 126, 0.4);
+transform: translateY(-2px);
+}
+.card-hover:hover {
+transform: perspective(1000px) rotateY(10deg) translateZ(20px);
+box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+.social-card:hover {
+transform: scale(1.05);
+box-shadow: 0 0 20px rgba(14, 255, 126, 0.6);
+}
+input:focus, textarea:focus {
+border-color: #0eff7e;
+box-shadow: 0 0 0 2px rgba(14, 255, 126, 0.2);
+}
+.floating {
+animation: floating 3s ease-in-out infinite;
+}
+@keyframes floating {
+0% { transform: translateY(0px); }
+50% { transform: translateY(-10px); }
+100% { transform: translateY(0px); }
+}
+.particles {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+overflow: hidden;
+z-index: 0;
+}
+.particle {
+position: absolute;
+border-radius: 50%;
+background: rgba(14, 255, 126, 0.5);
+animation: particle-animation 15s infinite;
+box-shadow: 0 0 10px rgba(14, 255, 126, 0.7);
+}
+@keyframes particle-animation {
+0% {
+transform: translate(0, 0);
+opacity: 0;
+}
+50% {
+opacity: 0.7;
+}
+100% {
+transform: translate(var(--tx), var(--ty));
+opacity: 0;
+}
+}
+/* Custom form elements */
+input[type="checkbox"] {
+appearance: none;
+width: 20px;
+height: 20px;
+border: 2px solid rgba(255, 255, 255, 0.3);
+border-radius: 4px;
+background: transparent;
+position: relative;
+cursor: pointer;
+}
+input[type="checkbox"]:checked {
+background: #0eff7e;
+border-color: #0eff7e;
+}
+input[type="checkbox"]:checked::after {
+content: "";
+position: absolute;
+left: 6px;
+top: 2px;
+width: 6px;
+height: 12px;
+border: solid white;
+border-width: 0 2px 2px 0;
+transform: rotate(45deg);
+}
+.custom-switch {
+position: relative;
+display: inline-block;
+width: 50px;
+height: 24px;
+}
+.custom-switch input {
+opacity: 0;
+width: 0;
+height: 0;
+}
+.slider {
+position: absolute;
+cursor: pointer;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: rgba(255, 255, 255, 0.2);
+transition: .4s;
+border-radius: 34px;
+}
+.slider:before {
+position: absolute;
+content: "";
+height: 18px;
+width: 18px;
+left: 3px;
+bottom: 3px;
+background-color: white;
+transition: .4s;
+border-radius: 50%;
+}
+input:checked + .slider {
+background-color: #0eff7e;
+}
+input:checked + .slider:before {
+transform: translateX(26px);
+}
+.fade-in {
+opacity: 0;
+transform: translateY(20px);
+transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.fade-in.visible {
+opacity: 1;
+transform: translateY(0);
+}
+.all{
+  font-size: 17px;
+}
+
+
+</style>
+</head>
+<body>
+<!-- Header/Navigation -->
+<header class="sticky top-0 w-full z-50 bg-opacity-80 bg-[#050a18] backdrop-blur-md border-b border-gray-800">
+<div class="container mx-auto px-6 py-4">
+<div class="flex justify-between items-center">
+<a href="#" class="text-2xl font-bold gradient-text font-['Orbitron']">YG</a>
+<nav class="hidden md:flex space-x-8">
+<a href="#home" class="text-gray-300 hover:text-primary transition-colors relative nav-link group">
+<span>Home</span>
+<span class="absolute bottom-0 left-0 w-full h-0.5 bg-primary transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100 opacity-70 glow"></span>
+</a>
+<a href="#about" class="text-gray-300 hover:text-primary transition-colors relative nav-link group">
+<span>About</span>
+<span class="absolute bottom-0 left-0 w-full h-0.5 bg-primary transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100 opacity-70 glow"></span>
+</a>
+<a href="#services" class="text-gray-300 hover:text-primary transition-colors relative nav-link group">
+<span>Services</span>
+<span class="absolute bottom-0 left-0 w-full h-0.5 bg-primary transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100 opacity-70 glow"></span>
+</a>
+<a href="#projects" class="text-gray-300 hover:text-primary transition-colors relative nav-link group">
+<span>Projects</span>
+<span class="absolute bottom-0 left-0 w-full h-0.5 bg-primary transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100 opacity-70 glow"></span>
+</a>
+<a href="#contact" class="text-gray-300 hover:text-primary transition-colors relative nav-link group">
+<span>Contact</span>
+<span class="absolute bottom-0 left-0 w-full h-0.5 bg-primary transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100 opacity-70 glow"></span>
+</a>
+</nav>
+<div class="flex items-center space-x-4">
+<button class="hidden md:block px-6 py-2 bg-transparent border border-primary text-primary hover:bg-primary hover:text-black transition-all duration-300 !rounded-button whitespace-nowrap" style="display: none;">Resume</button>
+<button class="md:hidden w-10 h-10 flex items-center justify-center text-white" id="mobileMenuButton">
+<i class="ri-menu-line ri-lg"></i>
+</button>
+</div>
+</div>
+</div>
+<!-- Mobile Menu -->
+<div id="mobileMenu" class="md:hidden hidden bg-[#0b1225] border-t border-gray-800">
+<div class="container mx-auto px-6 py-4">
+<nav class="flex flex-col space-y-4">
+<a href="#home" class="text-gray-300 hover:text-primary transition-colors py-2">Home</a>
+<a href="#about" class="text-gray-300 hover:text-primary transition-colors py-2">About</a>
+<a href="#services" class="text-gray-300 hover:text-primary transition-colors py-2">Services</a>
+<a href="#projects" class="text-gray-300 hover:text-primary transition-colors py-2">Projects</a>
+<a href="#testimonials" class="text-gray-300 hover:text-primary transition-colors py-2">Testimonials</a>
+<a href="#contact" class="text-gray-300 hover:text-primary transition-colors py-2">Contact</a>
+<!-- <button class="px-6 py-2 bg-transparent border border-primary text-primary hover:bg-primary hover:text-black transition-all duration-300 !rounded-button whitespace-nowrap w-full">Resume</button> -->
+</nav>
+</div>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="hero-bg min-h-screen flex items-center relative overflow-hidden">
+<div class="particles" id="particles"></div>
+<div class="container mx-auto px-6 py-24 pt-32 relative z-10">
+<div class="max-w-3xl">
+<h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 font-['Orbitron']">
+<span class="gradient-text">Yash Gupta</span>
+</h1>
+<h2 class="text-2xl md:text-3xl font-semibold mb-6 text-white font-['Orbitron']">UI/UX Designer & Web Developer</h2>
+<p class="text-lg md:text-xl text-gray-300 mb-8">Designing and building futuristic, fast, and user-focused digital products.</p>
+<div class="flex flex-wrap gap-4">
+<button class="px-6 py-3 bg-primary text-black font-medium transition-all duration-300 btn-glow !rounded-button whitespace-nowrap">
+Explore Projects
+</button>
+<button class="px-6 py-3 bg-transparent border border-primary text-primary hover:bg-primary hover:text-black transition-all duration-300 btn-glow !rounded-button whitespace-nowrap">
+Let's Work Together
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- About Section -->
+<section id="about" class="py-20 md:py-32 bg-[#070d1f]">
+<div class="container mx-auto px-6">
+<div class="flex flex-col md:flex-row items-center gap-12 md:gap-20">
+<div class="w-full md:w-2/5 flex justify-center">
+<div class="relative">
+<div class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary neon-glow">
+ <img src="https://i.ibb.co/G3T6jw2J/profile.jpg" alt="Yash Gupta" class="w-full h-full object-cover object-top">
+</div>
+<div class="absolute -bottom-6 -right-6 glass-card p-4 rounded-lg blue-glow">
+<p class="text-sm font-medium">
+<span class="block text-blue-400">7+ Projects</span>
+<span class="block text-gray-300">Completed</span>
+</p>
+</div>
+</div>
+</div>
+<div class="w-full md:w-3/5">
+<h2 class="text-3xl md:text-4xl font-bold mb-6 font-['Orbitron']">About <span class="gradient-text">Me</span></h2>
+<p class="text-lg text-gray-300 mb-8">
+I'm an 18-year-old designer & front-end developer passionate about building digital products that solve real-world problems. I use tools like Figma, Webflow, HTML, CSS, JS, React, and Firebase to bring visions to life.
+</p>
+<div class="mb-8">
+<h3 class="text-xl font-semibold mb-4 font-['Orbitron']">My Skills</h3>
+<div class="flex flex-wrap gap-3">
+<span class="px-4 py-2 glass-card rounded-full text-primary border border-primary text-sm hovar">Figma</span>
+<span class="px-4 py-2 glass-card rounded-full text-primary border border-primary text-sm hovar">Webflow</span>
+<span class="px-4 py-2 glass-card rounded-full text-primary border border-primary text-sm hovar">React</span>
+<span class="px-4 py-2 glass-card rounded-full text-primary border border-primary text-sm hovar">Firebase</span>
+<span class="px-4 py-2 glass-card rounded-full text-primary border border-primary text-sm hovar">HTML</span>
+<span class="px-4 py-2 glass-card rounded-full text-primary border border-primary text-sm hovar">CSS</span>
+<span class="px-4 py-2 glass-card rounded-full text-primary border border-primary text-sm hovar">JavaScript</span>
+<span class="px-4 py-2 glass-card rounded-full text-primary border border-primary text-sm hovar">ChatGPT API</span>
+</div>
+</div>
+<div class="flex flex-wrap gap-4">
+<button class="px-6 py-3 bg-primary text-black font-medium transition-all duration-300 btn-glow !rounded-button whitespace-nowrap" style="display: none;">
+Download Resume
+</button>
+<button class="px-6 py-3 bg-transparent border border-primary text-primary hover:bg-primary hover:text-black transition-all duration-300 btn-glow !rounded-button whitespace-nowrap" style="display: none;">
+My Process
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Section -->
+<section id="services" class="py-20 md:py-32 bg-[#050a18]">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-5xl font-bold mb-4 font-['Orbitron']">My <span class="gradient-text">Services</span></h2>
+<p class="text-lg text-gray-300 max-w-2xl mx-auto">Specialized solutions tailored to bring your digital vision to life with precision and creativity.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Service 1 -->
+<div class="glass-card p-8 rounded-xl transition-all duration-300 hover:transform hover:scale-105 hover:neon-glow fade-in">
+<div class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-20 rounded-full mb-6">
+<i class="ri-layout-4-line ri-xl text-primary"></i>
+</div>
+<h3 class="text-xl font-bold mb-4 font-['Orbitron']">UI/UX Design</h3>
+<p class="text-gray-300 mb-6">Modern interfaces that convert and engage. I create intuitive, visually appealing designs focused on user experience.</p>
+<ul class="space-y-2 mb-6">
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mr-2 mt-1"></i>
+<span class="text-gray-300">User Research & Personas</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mr-2 mt-1"></i>
+<span class="text-gray-300">Wireframing & Prototyping</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mr-2 mt-1"></i>
+<span class="text-gray-300">Interactive Design Systems</span>
+</li>
+</ul>
+<!-- <a href="#" class="inline-flex items-center text-primary hover:text-white transition-colors">
+Learn more
+<i class="ri-arrow-right-line ml-2"></i>
+</a> -->
+</div>
+<!-- Service 2 -->
+<div class="glass-card p-8 rounded-xl transition-all duration-300 hover:transform hover:scale-105 hover:blue-glow fade-in">
+<div class="w-16 h-16 flex items-center justify-center bg-secondary bg-opacity-20 rounded-full mb-6">
+<i class="ri-code-s-slash-line ri-xl text-secondary"></i>
+</div>
+<h3 class="text-xl font-bold mb-4 font-['Orbitron']">Web Development</h3>
+<p class="text-gray-300 mb-6">Fast, responsive websites using latest tech. I build performant, accessible, and maintainable web applications.</p>
+<ul class="space-y-2 mb-6">
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-secondary mr-2 mt-1"></i>
+<span class="text-gray-300">Responsive Web Apps</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-secondary mr-2 mt-1"></i>
+<span class="text-gray-300">Frontend Development</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-secondary mr-2 mt-1"></i>
+<span class="text-gray-300">CMS Integration</span>
+</li>
+</ul>
+<!-- <a href="#" class="inline-flex items-center text-secondary hover:text-white transition-colors">
+Learn more
+<i class="ri-arrow-right-line ml-2"></i>
+</a> -->
+</div>
+<!-- Service 3 -->
+<div class="glass-card p-8 rounded-xl transition-all duration-300 hover:transform hover:scale-105 hover:neon-glow fade-in">
+<div class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-20 rounded-full mb-6">
+<i class="ri-rocket-line ri-xl text-primary"></i>
+</div>
+<h3 class="text-xl font-bold mb-4 font-['Orbitron']">MVP Prototyping</h3>
+<p class="text-gray-300 mb-6">Quick launch-ready designs for startup founders. I help validate ideas and get to market faster.</p>
+<ul class="space-y-2 mb-6">
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mr-2 mt-1"></i>
+<span class="text-gray-300">Concept Validation</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mr-2 mt-1"></i>
+<span class="text-gray-300">Rapid Prototyping</span>
+</li>
+<li class="flex items-start">
+<i class="ri-checkbox-circle-line text-primary mr-2 mt-1"></i>
+<span class="text-gray-300">User Testing & Iteration</span>
+</li>
+</ul>
+<!-- <a href="#" class="inline-flex items-center text-primary hover:text-white transition-colors">
+Learn more
+<i class="ri-arrow-right-line ml-2"></i>
+</a> -->
+</div>
+</div>
+</div>
+</section>
+<!-- Projects Section -->
+<section id="projects" class="py-20 md:py-32 bg-[#070d1f]">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-5xl font-bold mb-4 font-['Orbitron']">Featured <span class="gradient-text">Projects</span></h2>
+<p class="text-lg text-gray-300 max-w-2xl mx-auto">A selection of my recent work showcasing my design and development capabilities.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Project 1 -->
+<div class="glass-card rounded-xl overflow-hidden transition-all duration-500 card-hover fade-in">
+<div class="h-56 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=modern%20mobile%20app%20interface%20for%20home%20investment%20app%2C%20fractional%20investment%20concept%2C%20financial%20app%20UI%2C%20dark%20theme%20with%20green%20accents%2C%20professional%20UI%20design%2C%20high%20quality%2C%20detailed%20screens%20showing%20property%20investment%2C%20minimal%20text&width=600&height=400&seq=project1&orientation=landscape" alt="Ghar by @Apmorey" class="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-110">
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-4">
+<h3 class="text-xl font-bold font-['Orbitron']">InvestGhar</h3>
+<div class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-20 rounded-full">
+<i class="ri-home-4-line text-primary"></i>
+</div>
+</div>
+<p class="text-gray-300 mb-4">Fractional home investment app with ₹100 minimum entry. Built using React Native and Firebase.</p>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="px-3 py-1 bg-black bg-opacity-30 rounded-full text-primary text-xs">React Native</span>
+<span class="px-3 py-1 bg-black bg-opacity-30 rounded-full text-primary text-xs">Firebase</span>
+<span class="px-3 py-1 bg-black bg-opacity-30 rounded-full text-primary text-xs">Figma</span>
+</div>
+
+<a href="https://lustrous-alfajores-60ca5e.netlify.app/"
+   target="_blank"
+   class="w-full py-3 bg-transparent border border-primary text-primary hover:bg-primary hover:text-black transition-all duration-300 flex items-center justify-center !rounded-button whitespace-nowrap">
+  View Case Study
+  <i class="ri-arrow-right-line ml-2"></i>
+</a>
+
+</div>
+</div>
+<!-- Project 2 -->
+<div class="glass-card rounded-xl overflow-hidden transition-all duration-500 card-hover fade-in">
+<div class="h-56 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=fitness%20app%20interface%20showing%20nutrition%20tracking%2C%20macros%20calculation%2C%20food%20database%20with%20calories%2C%20protein%2C%20carbs%20and%20fats%20tracking%2C%20dark%20UI%20with%20blue%20accents%2C%20professional%20UI%20design%2C%20high%20quality%2C%20detailed%20screens&width=600&height=400&seq=project2&orientation=landscape" alt="FitFuel" class="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-110">
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-4">
+<h3 class="text-xl font-bold font-['Orbitron']">FitFuel</h3>
+<div class="w-10 h-10 flex items-center justify-center bg-secondary bg-opacity-20 rounded-full">
+<i class="ri-heart-pulse-line text-secondary"></i>
+</div>
+</div>
+<p class="text-gray-300 mb-4">A gym nutrition tracker with macros, calories, and 50+ food items. Built with React and Firestore.</p>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="px-3 py-1 bg-black bg-opacity-30 rounded-full text-secondary text-xs">React</span>
+<span class="px-3 py-1 bg-black bg-opacity-30 rounded-full text-secondary text-xs">Firestore</span>
+<span class="px-3 py-1 bg-black bg-opacity-30 rounded-full text-secondary text-xs">Chart.js</span>
+</div>
+
+<a href="https://fittnessfood.vercel.app/"
+   target="_blank"
+   class="w-full py-3 bg-transparent border border-primary text-primary hover:bg-primary hover:text-black transition-all duration-300 flex items-center justify-center !rounded-button whitespace-nowrap">
+  View Case Study
+  <i class="ri-arrow-right-line ml-2"></i>
+</a>
+</div>
+</div>
+<!-- Project 3 -->
+<div class="glass-card rounded-xl overflow-hidden transition-all duration-500 card-hover fade-in">
+<div class="h-56 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=AI-powered%20community%20noticeboard%20app%20interface%2C%20location-based%20filters%2C%20real-time%20updates%2C%20dark%20UI%20with%20green%20accents%2C%20professional%20UI%20design%2C%20high%20quality%2C%20detailed%20screens%20showing%20community%20posts%20and%20AI%20recommendations&width=600&height=400&seq=project3&orientation=landscape" alt="NoticeBoard AI" class="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-110">
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-4">
+<h3 class="text-xl font-bold font-['Orbitron']">NoticeBoard AI</h3>
+<div class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-20 rounded-full">
+<i class="ri-ai-generate text-primary"></i>
+</div>
+</div>
+<p class="text-gray-300 mb-4">Hyperlocal AI-powered community noticeboard. Real-time updates, location-based filters. Powered by GPT + Firebase.</p>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="px-3 py-1 bg-black bg-opacity-30 rounded-full text-primary text-xs">Next.js</span>
+<span class="px-3 py-1 bg-black bg-opacity-30 rounded-full text-primary text-xs">Firebase</span>
+<span class="px-3 py-1 bg-black bg-opacity-30 rounded-full text-primary text-xs">OpenAI API</span>
+</div>
+<a href="https://gleaming-crumble-8cd7fb.netlify.app/"
+   target="_blank"
+   class="w-full py-3 bg-transparent border border-primary text-primary hover:bg-primary hover:text-black transition-all duration-300 flex items-center justify-center !rounded-button whitespace-nowrap">
+  View Case Study
+  <i class="ri-arrow-right-line ml-2"></i>
+</a>
+</div>
+</div>
+</div>
+<div class="text-center mt-12">
+<button class="px-8 py-3 bg-transparent border border-primary text-primary hover:bg-primary hover:text-black transition-all duration-300 btn-glow !rounded-button whitespace-nowrap">
+View All Projects
+</button>
+</div>
+</div>
+</section>
+<!-- Testimonials Section -->
+<section id="testimonials" class="py-20 md:py-32 bg-[#050a18]">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-5xl font-bold mb-4 font-['Orbitron']">Client <span class="gradient-text">Feedback</span></h2>
+<p class="text-lg text-gray-300 max-w-2xl mx-auto">What my clients say about working with me and the results we've achieved together.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Testimonial 1 -->
+<div class="glass-card p-8 rounded-xl border border-gray-800 relative fade-in floating">
+<div class="w-10 h-10 flex items-center justify-center text-primary absolute top-8 left-8">
+<i class="ri-double-quotes-l ri-2x"></i>
+</div>
+<div class="pt-12 pb-4">
+<p class="text-gray-300 italic mb-8">Yash helped us launch our MVP in record time — clean design and pixel-perfect code. His attention to detail and user-centered approach transformed our concept into a product that our early users love. The analytics show engagement metrics well above industry average.</p>
+<div class="flex items-center">
+<div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+<img src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20Indian%20business%20man%20in%20his%2030s%2C%20formal%20attire%2C%20neutral%20background%2C%20high%20quality%20portrait&width=100&height=100&seq=client1&orientation=squarish" alt="Arjun Mehta" class="w-full h-full object-cover object-top">
+</div>
+<div>
+<h4 class="font-semibold">Arjun Mehta</h4>
+<p class="text-sm text-gray-400">Founder</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Testimonial 2 -->
+<div class="glass-card p-8 rounded-xl border border-gray-800 relative fade-in floating">
+<div class="w-10 h-10 flex items-center justify-center text-secondary absolute top-8 left-8">
+<i class="ri-double-quotes-l ri-2x"></i>
+</div>
+<div class="pt-12 pb-4">
+<p class="text-gray-300 italic mb-8">Our user engagement improved dramatically after Yash's redesign. He has a unique ability to balance aesthetics with functionality. What impressed me most was his proactive approach to solving problems before they arose. We've already booked him for our next project.</p>
+<div class="flex items-center">
+<div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+<img src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20Indian%20woman%20in%20her%2040s%2C%20business%20casual%20attire%2C%20neutral%20background%2C%20high%20quality%20portrait&width=100&height=100&seq=client2&orientation=squarish" alt="Priya Sharma" class="w-full h-full object-cover object-top">
+ 
+</div>
+<div>
+<h4 class="font-semibold">Sneha Sharma</h4>
+<p class="text-sm text-gray-400">Product Manager</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section id="contact" class="py-20 md:py-32 bg-[#070d1f]">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-5xl font-bold mb-4 font-['Orbitron']">Get In <span class="gradient-text">Touch</span></h2>
+<p class="text-lg text-gray-300 max-w-2xl mx-auto">Have a project in mind? Let's discuss how we can work together to bring your vision to life.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<!-- Contact Form -->
+<!-- <div class="glass-card p-8 rounded-xl border border-gray-800 fade-in">
+<h3 class="text-2xl font-bold mb-6 font-['Orbitron']">Send Me a Message</h3>
+<form>
+<div class="mb-6">
+<label for="name" class="block text-sm font-medium text-gray-400 mb-2">Your Name</label>
+<input type="text" id="name" class="w-full bg-[#0b1225] border border-gray-700 rounded p-3 text-white focus:border-primary focus:outline-none" placeholder="John Doe">
+</div>
+<div class="mb-6">
+<label for="email" class="block text-sm font-medium text-gray-400 mb-2">Email Address</label>
+<input type="email" id="email" class="w-full bg-[#0b1225] border border-gray-700 rounded p-3 text-white focus:border-primary focus:outline-none" placeholder="john@example.com">
+</div>
+<div class="mb-6">
+<label for="subject" class="block text-sm font-medium text-gray-400 mb-2">Subject</label>
+<input type="text" id="subject" class="w-full bg-[#0b1225] border border-gray-700 rounded p-3 text-white focus:border-primary focus:outline-none" placeholder="Project Inquiry">
+</div>
+<div class="mb-6">
+<label for="message" class="block text-sm font-medium text-gray-400 mb-2">Message</label>
+<textarea id="message" rows="5" class="w-full bg-[#0b1225] border border-gray-700 rounded p-3 text-white focus:border-primary focus:outline-none" placeholder="Tell me about your project..."></textarea>
+</div>
+<button type="submit" class="w-full py-3 bg-primary text-black font-medium transition-all duration-300 btn-glow !rounded-button whitespace-nowrap">
+Send Message
+</button>
+</form>
+</div> -->
+
+
+<!-- Contact Form -->
+<div class="glass-card p-8 rounded-xl border border-gray-800 fade-in">
+  <h3 class="text-2xl font-bold mb-6 font-['Orbitron']">Send Me a Message</h3>
+  <form action="https://script.google.com/macros/s/AKfycbyjZJWF3X_0Z3obJME9bnJ82eiYiDLmqCs3_OXkov7s0_u9SyfKzwgLpe-9gwnCqXmB/exec" method="POST">
+    
+    <div class="mb-6">
+      <label for="name" class="block text-sm font-medium text-gray-400 mb-2">Your Name</label>
+      <input type="text" name="name" id="name" class="w-full bg-[#0b1225] border border-gray-700 rounded p-3 text-white focus:border-primary focus:outline-none" placeholder="Yash Gupta" required>
+    </div>
+
+    <div class="mb-6">
+      <label for="email" class="block text-sm font-medium text-gray-400 mb-2">Email Address</label>
+      <input type="email" name="email" id="email" class="w-full bg-[#0b1225] border border-gray-700 rounded p-3 text-white focus:border-primary focus:outline-none" placeholder="yashkumar62011xample.com" required>
+    </div>
+
+    <div class="mb-6">
+      <label for="subject" class="block text-sm font-medium text-gray-400 mb-2">Subject</label>
+      <input type="text" name="subject" id="subject" class="w-full bg-[#0b1225] border border-gray-700 rounded p-3 text-white focus:border-primary focus:outline-none" placeholder="Project Inquiry" required>
+    </div>
+
+    <div class="mb-6">
+      <label for="message" class="block text-sm font-medium text-gray-400 mb-2">Message</label>
+      <textarea name="message" id="message" rows="5" class="w-full bg-[#0b1225] border border-gray-700 rounded p-3 text-white focus:border-primary focus:outline-none" placeholder="Tell me about your project..." required></textarea>
+    </div>
+
+    <!-- Optional anti-spam field -->
+    <input type="text" name="_honey" style="display:none">
+
+    <button type="submit" class="w-full py-3 bg-primary text-black font-medium transition-all duration-300 btn-glow !rounded-button whitespace-nowrap">
+      Send Message
+    </button>
+  </form>
+</div>
+
+<!-- Contact Info -->
+<div class="fade-in">
+<div class="glass-card p-8 rounded-xl border border-gray-800 mb-8">
+<h3 class="text-2xl font-bold mb-6 font-['Orbitron']">Contact Information</h3>
+<div class="space-y-6">
+<div class="flex items-start">
+<!-- <div class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-20 rounded-full mr-4"> -->
+
+  <div class="w-10 h-10 flex-shrink-0 flex items-center justify-center bg-primary bg-opacity-20 rounded-full mr-4">
+  <i class="ri-mail-line text-primary text-lg"></i>
+</div>
+
+<!-- <i class="ri-mail-line text-primary "></i> -->
+
+<div>
+<p class="text-sm text-gray-400 mb-1 emm">Email</p>
+<p class="text-white break-all  all">yashkumar62011@gmail.com</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-20 rounded-full mr-4">
+<i class="ri-phone-line text-primary"></i>
+</div>
+<div>
+<p class="text-sm text-gray-400 mb-1">Phone</p>
+<p class="text-white">+91 7979768075</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-20 rounded-full mr-4">
+<i class="ri-map-pin-line text-primary"></i>
+</div>
+<div>
+<p class="text-sm text-gray-400 mb-1">Location</p>
+<p class="text-white">Delhi, India</p>
+</div>
+</div>
+</div>
+</div>
+<h3 class="text-xl font-bold mb-4 font-['Orbitron']">Connect With Me</h3>
+<div class="grid grid-cols-2 gap-4">
+<a href="https://www.linkedin.com/in/yash-gupta-30a066331/" target="_blank" class="glass-card p-4 rounded-xl border border-gray-800 flex items-center transition-all duration-300 social-card">
+<div class="w-10 h-10 flex items-center justify-center bg-[#0077b5] bg-opacity-20 rounded-full mr-4">
+<i class="ri-linkedin-fill text-[#0077b5]"></i>
+</div>
+<span>LinkedIn</span>
+</a>
+<a href="https://github.com/Yash-kumar-coder" target="_blank" class="glass-card p-4 rounded-xl border border-gray-800 flex items-center transition-all duration-300 social-card">
+<div class="w-10 h-10 flex items-center justify-center bg-gray-500 bg-opacity-20 rounded-full mr-4">
+<i class="ri-github-fill text-gray-300"></i>
+</div>
+<span>GitHub</span>
+</a>
+<a href="https://www.threads.com/@yashgupta4196" target="_blank" class="glass-card p-4 rounded-xl border border-gray-800 flex items-center transition-all duration-300 social-card">
+<div class="w-10 h-10 flex items-center justify-center bg-gray-500 bg-opacity-20 rounded-full mr-4">
+<i class="ri-thread-line text-gray-300"></i>
+</div>
+<span>Threads</span>
+</a>
+<a href="https://www.instagram.com/yashgupta4196/" target="_blank" class="glass-card p-4 rounded-xl border border-gray-800 flex items-center transition-all duration-300 social-card">
+<div class="w-10 h-10 flex items-center justify-center bg-[#e1306c] bg-opacity-20 rounded-full mr-4 flex-shrink-0">
+<i class="ri-instagram-fill text-[#e1306c]"></i>
+</div>
+<span>Insta</span>
+</a>
+
+
+
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="py-12 bg-[#030712] border-t border-gray-800">
+<div class="container mx-auto px-6">
+<div class="flex flex-col md:flex-row justify-between items-center">
+<div class="mb-6 md:mb-0">
+<a href="#" class="text-2xl font-bold gradient-text font-['Orbitron']">YG</a>
+</div>
+<div class="flex space-x-6 mb-6 md:mb-0">
+<a href="https://www.threads.com/@yashgupta4196" target="_blank" class="text-gray-400 hover:text-primary transition-colors">
+<i class="ri-threads-fill ri-lg"></i>
+</a>
+<a href="https://www.instagram.com/yashgupta4196/" target="_blank" class="text-gray-400 hover:text-primary transition-colors ">
+<i class="ri-instagram-fill ri-lg "></i>
+
+</a>
+
+
+
+
+<a href="https://www.linkedin.com/in/yash-gupta-30a066331/" target="_blank" class="text-gray-400 hover:text-primary transition-colors">
+<i class="ri-linkedin-fill ri-lg"></i>
+</a>
+<a href="https://github.com/Yash-kumar-coder" target="_blank" class="text-gray-400 hover:text-primary transition-colors">
+<i class="ri-github-fill ri-lg"></i>
+</a>
+</div>
+<div class="text-center md:text-right">
+<p class="text-gray-400">© 2025 Yash Gupta. All rights reserved.</p>
+</div>
+</div>
+</div>
+</footer>
+<!-- Scripts -->
+<script id="mobileMenuScript">
+document.addEventListener('DOMContentLoaded', function() {
+const mobileMenuButton = document.getElementById('mobileMenuButton');
+const mobileMenu = document.getElementById('mobileMenu');
+mobileMenuButton.addEventListener('click', function() {
+mobileMenu.classList.toggle('hidden');
+if (mobileMenu.classList.contains('hidden')) {
+mobileMenuButton.innerHTML = '<i class="ri-menu-line ri-lg"></i>';
+} else {
+mobileMenuButton.innerHTML = '<i class="ri-close-line ri-lg"></i>';
+}
+});
+// Close mobile menu when clicking on a link
+const mobileLinks = mobileMenu.querySelectorAll('a');
+mobileLinks.forEach(link => {
+link.addEventListener('click', function() {
+mobileMenu.classList.add('hidden');
+mobileMenuButton.innerHTML = '<i class="ri-menu-line ri-lg"></i>';
+});
+});
+});
+</script>
+<script id="scrollAnimationScript">
+document.addEventListener('DOMContentLoaded', function() {
+const fadeElements = document.querySelectorAll('.fade-in');
+const observer = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+entry.target.classList.add('visible');
+}
+});
+}, {
+threshold: 0.1
+});
+fadeElements.forEach(element => {
+observer.observe(element);
+});
+});
+</script>
+<script id="particlesScript">
+document.addEventListener('DOMContentLoaded', function() {
+const particlesContainer = document.getElementById('particles');
+const particleCount = 20;
+for (let i = 0; i < particleCount; i++) {
+const particle = document.createElement('div');
+particle.classList.add('particle');
+// Random size between 2px and 6px
+const size = Math.random() * 4 + 2;
+particle.style.width = `${size}px`;
+particle.style.height = `${size}px`;
+// Random starting position
+const posX = Math.random() * 100;
+const posY = Math.random() * 100;
+particle.style.left = `${posX}%`;
+particle.style.top = `${posY}%`;
+// Random movement direction
+const tx = (Math.random() - 0.5) * 200;
+const ty = (Math.random() - 0.5) * 200;
+particle.style.setProperty('--tx', `${tx}px`);
+particle.style.setProperty('--ty', `${ty}px`);
+// Random animation duration between 10s and 20s
+const duration = Math.random() * 10 + 10;
+particle.style.animationDuration = `${duration}s`;
+// Random delay
+const delay = Math.random() * 5;
+particle.style.animationDelay = `${delay}s`;
+particlesContainer.appendChild(particle);
+}
+});
+</script>
+<script id="smoothScrollScript">
+document.addEventListener('DOMContentLoaded', function() {
+  const navLinks = document.querySelectorAll('.nav-link');
+  
+  navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      const targetSection = document.querySelector(targetId);
+      
+      if (targetSection) {
+        targetSection.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+        
+        // Close mobile menu if open
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        if (!mobileMenu.classList.contains('hidden')) {
+          mobileMenu.classList.add('hidden');
+          mobileMenuButton.innerHTML = '<i class="ri-menu-line ri-lg"></i>';
+        }
+      }
+    });
+  });
+});
+</script>
+<script id="smoothScrollScript">
+document.addEventListener('DOMContentLoaded', function() {
+  // Function to handle smooth scrolling
+  function scrollToSection(targetId) {
+    const targetSection = document.querySelector(targetId);
+    if (targetSection) {
+      targetSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  }
+
+  // For navigation links
+  const navLinks = document.querySelectorAll('.nav-link');
+  navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      scrollToSection(targetId);
+
+      // Close mobile menu if open
+      const mobileMenu = document.getElementById('mobileMenu');
+      const mobileMenuButton = document.getElementById('mobileMenuButton');
+      if (!mobileMenu.classList.contains('hidden')) {
+        mobileMenu.classList.add('hidden');
+        mobileMenuButton.innerHTML = '<i class="ri-menu-line ri-lg"></i>';
+      }
+    });
+  });
+
+  // Add event listeners to hero buttons
+  document.querySelectorAll('.hero-bg button').forEach(button => {
+    button.addEventListener('click', function() {
+      if (this.textContent.includes('Explore Projects')) {
+        scrollToSection('#projects');
+      } else if (this.textContent.includes('Work Together')) {
+        scrollToSection('#contact');
+      }
+    });
+  });
+});
+</script>
+<script id="smoothScrollScript">
+document.addEventListener('DOMContentLoaded', function() {
+  // Function to handle smooth scrolling
+  function scrollToSection(targetId) {
+    if (targetId === '#home') {
+      // Scroll to the top of the page
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    } else {
+      const targetSection = document.querySelector(targetId);
+      if (targetSection) {
+        targetSection.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    }
+  }
+
+  // For navigation links
+  const navLinks = document.querySelectorAll('.nav-link');
+  navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      scrollToSection(targetId);
+
+      // Close mobile menu if open
+      const mobileMenu = document.getElementById('mobileMenu');
+      const mobileMenuButton = document.getElementById('mobileMenuButton');
+      if (!mobileMenu.classList.contains('hidden')) {
+        mobileMenu.classList.add('hidden');
+        mobileMenuButton.innerHTML = '<i class="ri-menu-line ri-lg"></i>';
+      }
+    });
+  });
+
+  // Add event listeners to hero buttons
+  document.querySelectorAll('.hero-bg button').forEach(button => {
+    button.addEventListener('click', function() {
+      if (this.textContent.includes('Explore Projects')) {
+        scrollToSection('#projects');
+      } else if (this.textContent.includes('Work Together')) {
+        scrollToSection('#contact');
+      }
+    });
+  });
+});
+</script>
+
+<script id="smoothScrollScript">
+document.addEventListener('DOMContentLoaded', function() {
+  // Function to handle smooth scrolling
+  function scrollToSection(targetId) {
+    if (targetId === '#home') {
+      // Scroll to the top of the page
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    } else {
+      const targetSection = document.querySelector(targetId);
+      if (targetSection) {
+        targetSection.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    }
+  }
+
+  // For navigation links (desktop and mobile)
+  const navLinks = document.querySelectorAll('.nav-link');
+  navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      scrollToSection(targetId);
+
+      // Close mobile menu if open
+      const mobileMenu = document.getElementById('mobileMenu');
+      const mobileMenuButton = document.getElementById('mobileMenuButton');
+      if (!mobileMenu.classList.contains('hidden')) {
+        mobileMenu.classList.add('hidden');
+        mobileMenuButton.innerHTML = '<i class="ri-menu-line ri-lg"></i>';
+      }
+    });
+  });
+
+  // Add event listeners to hero buttons
+  document.querySelectorAll('.hero-bg button').forEach(button => {
+    button.addEventListener('click', function() {
+      if (this.textContent.includes('Explore Projects')) {
+        scrollToSection('#projects');
+      } else if (this.textContent.includes('Work Together')) {
+        scrollToSection('#contact');
+      }
+    });
+  });
+
+  // Specifically for the mobile menu Home button (if not already covered by navLinks)
+  // This is a fallback in case the mobile Home button doesn't have the class 'nav-link'
+  const mobileHomeBtn = document.querySelector('#mobileMenu a[href="#home"]');
+  if (mobileHomeBtn && !mobileHomeBtn.classList.contains('nav-link')) {
+    mobileHomeBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      scrollToSection('#home');
+      
+      // Close mobile menu
+      const mobileMenu = document.getElementById('mobileMenu');
+      const mobileMenuButton = document.getElementById('mobileMenuButton');
+      mobileMenu.classList.add('hidden');
+      mobileMenuButton.innerHTML = '<i class="ri-menu-line ri-lg"></i>';
+    });
+  }
+});
+</script>
+
+</body>
+</html>
